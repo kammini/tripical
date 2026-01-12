@@ -12,9 +12,9 @@ export default function NavBar() {
             : 'font-medium'}`;
 
     return(
-        <header className='bg-white shadow-md sticky top-0'>
-            <nav className="container mx-auto p-4 flex items-center justify-between h-25">
-                <div>
+        <header className='bg-white shadow-md sticky top-0 z-50'>
+            <nav className="container mx-auto p-4 sm:px-6 flex items-center justify-between h-25">
+                <div className='flex-shrink-0'>
                     <Link to="/">
                         <img src={logo} alt="Tripical Logo" className="w-28 h-auto"/>
                     </Link>
@@ -34,20 +34,43 @@ export default function NavBar() {
                 </div>
 
                 <div className="hidden md:block">
-                    <button className='w-full cursor-pointer bg-yellow-500 px-3 py-2 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-opacity-75 transition-colors duration-300'>Book Now</button>
+                    <button className='cursor-pointer bg-yellow-500 px-6 py-2 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-opacity-75 transition-colors duration-300'>Book Now</button>
                 </div>
 
                 {/* Mobile Menu Hamburger */}
                 <div className="md:hidden flex items-center">
                     <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
                         {isOpen ?
-                            <XMarkIcon className="h-8 w-8 text-gray-700"/>
+                            <XMarkIcon className="h-8 w-8 text-gray-700 cursor-pointer"/>
                             :
-                            <Bars3Icon className="h-8 w-8 text-gray-700"/>
+                            <Bars3Icon className="h-8 w-8 text-gray-700 cursor-pointer"/>
                         }
                     </button>
                 </div>
             </nav>
+
+            {/* Mobile Menu */}
+            {isOpen && (
+                <div className='md:hidden bg-white shadow-lg'>
+                    <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3'>
+                        <NavLink to='/' className={navLinkClasses} onClick={() => setIsOpen(false)}>
+                            <span className='block px-3 py-2 rounded-md text-base'>Home</span>
+                        </NavLink>
+                        <NavLink to='/details' className={navLinkClasses} onClick={() => setIsOpen(false)}>
+                            <span className='block px-3 py-2 rounded-md text-base'>Details</span>
+                        </NavLink>
+                        <NavLink to='/about' className={navLinkClasses} onClick={() => setIsOpen(false)}>
+                            <span className='block px-3 py-2 rounded-md text-base'>About Us</span>
+                        </NavLink>
+                        <NavLink to='/contact' className={navLinkClasses} onClick={() => setIsOpen(false)}>
+                            <span className='block px-3 py-2 rounded-md text-base'>Contact Us</span>
+                        </NavLink>
+                        <div>
+                            <button className='w-full bg-yellow-500 px-6 py-2 text-white font-semibold rounded-lg shddow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 transition-colors duration-300 cursor-pointer'>Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </header>
     )
 }
