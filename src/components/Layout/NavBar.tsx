@@ -12,8 +12,8 @@ export default function NavBar() {
             : 'font-medium'}`;
 
     return(
-        <header>
-            <nav className="flex">
+        <header className='bg-white shadow-md sticky top-0'>
+            <nav className="container mx-auto p-4 flex items-center justify-between h-25">
                 <div>
                     <Link to="/">
                         <img src={logo} alt="Tripical Logo" className="w-28 h-auto"/>
@@ -21,7 +21,7 @@ export default function NavBar() {
                 </div>
 
                 {/* Desktop Menu */}
-                <div>
+                <div className='hidden md:flex items-center space-x-8'>
                     <NavLink to="/details" className={navLinkClasses}>
                         Details
                     </NavLink>
@@ -34,11 +34,11 @@ export default function NavBar() {
                 </div>
 
                 <div className="hidden md:block">
-                    <button>Book Now</button>
+                    <button className='w-full cursor-pointer bg-yellow-500 px-3 py-2 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-opacity-75 transition-colors duration-300'>Book Now</button>
                 </div>
 
                 {/* Mobile Menu Hamburger */}
-                <div className="md:hidden">
+                <div className="md:hidden flex items-center">
                     <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
                         {isOpen ?
                             <XMarkIcon className="h-8 w-8 text-gray-700"/>
