@@ -2,11 +2,11 @@ import ijen from '../assets/ijen.jpg'
 import { motion } from 'framer-motion'
 
 const cardVariants = {
-	offscren: {
+	offscreen: {
 		y: 50,
 		opacity: 0
 	},
-	onscreen: (i: number) => ({
+	onscreen: (i: any) => ({
 		y: 0,
 		opacity: 1,
 		transition: {

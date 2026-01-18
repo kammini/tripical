@@ -7,8 +7,8 @@ export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinkClasses = ({ isActive } : { isActive: boolean}) =>
-        `text-gray-600 transition-colors duration-300 hover:text-green-700 
-        ${isActive ? 'font-bold text-green-700' 
+        `text-gray-600 transition-colors duration-300 hover:text-yellow-700 
+        ${isActive ? 'font-bold text-yellow-700' 
             : 'font-medium'}`;
 
     return(
@@ -22,6 +22,9 @@ export default function NavBar() {
 
                 {/* Desktop Menu */}
                 <div className='hidden md:flex items-center space-x-8'>
+                    <NavLink to="/" className={navLinkClasses}>
+                        Home
+                    </NavLink>
                     <NavLink to="/details" className={navLinkClasses}>
                         Details
                     </NavLink>
@@ -34,7 +37,7 @@ export default function NavBar() {
                 </div>
 
                 <div className="hidden md:block">
-                    <button className='cursor-pointer bg-yellow-500 px-6 py-2 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-opacity-75 transition-colors duration-300'>Book Now</button>
+                    <Link to="/contact" className='cursor-pointer bg-yellow-500 px-6 py-2 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-opacity-75 transition-colors duration-300'>Book Now</Link>
                 </div>
 
                 {/* Mobile Menu Hamburger */}
@@ -66,7 +69,7 @@ export default function NavBar() {
                             <span className='block px-3 py-2 rounded-md text-base'>Contact Us</span>
                         </NavLink>
                         <div>
-                            <button className='w-full bg-yellow-500 px-6 py-2 text-white font-semibold rounded-lg shddow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 transition-colors duration-300 cursor-pointer'>Book Now</button>
+                            <Link to="/contact" className='block text-center w-full bg-yellow-500 px-6 py-2 text-white font-semibold rounded-lg shddow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 transition-colors duration-300 cursor-pointer'>Book Now</Link>
                         </div>
                     </div>
                 </div>
